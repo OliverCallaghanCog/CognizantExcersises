@@ -1,84 +1,140 @@
-### Interactive React Components and Virtual DOM Exercise
+# Exercise: Student Grade Calculator in C#
 
-#### Objective:
-Demonstrate your understanding of React components, JSX syntax, interactive state management, and how the Virtual DOM is instantiated and updated.
+## Objective
+Create a C# console application that calculates student grades and class averages, applying your knowledge of variables, data types, loops, conditionals, methods (functions), and lists.
 
-#### Starting HTML and JavaScript:
+---
 
-**index.html:**
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>React Virtual DOM Exercise</title>
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <script src="index.js" defer></script>
-</head>
-<body>
-  <div id="root"></div>
-</body>
-</html>
-```
+## Requirements
 
-**index.js:**
-```jsx
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { name: 'React Learner', input: '' };
-  }
+You will build a simple console application that manages student grades. Your application should:
 
-  handleInputChange = (e) => {
-    this.setState({ input: e.target.value });
-  };
+- Store each student’s name and their scores.
+- Calculate each student’s average score.
+- Assign each student a letter grade based on their average:
+  - `A`: 90–100
+  - `B`: 80–89
+  - `C`: 70–79
+  - `D`: 60–69
+  - `F`: Below 60
+- Print a clear summary showing each student's name, scores, average, and letter grade.
+- Calculate and print:
+  - The overall class average.
+  - The highest-scoring student's name and average.
+  - The lowest-scoring student's name and average.
 
-  updateName = () => {
-    this.setState({ name: this.state.input });
-  };
+---
 
-  render() {
-    return (
-      <div>
-        <Hello name={this.state.name} />
-        <input type="text" value={this.state.input} onChange={this.handleInputChange} />
-        <button onClick={this.updateName}>Update Name</button>
-      </div>
-    );
-  }
+## Starter Code
+
+Below is incomplete starter code. Your task is to complete the methods and logic clearly marked with `// TODO`.
+
+### `Program.cs`
+
+```csharp
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Student Grade Management System");
+        Console.WriteLine("===============================\n");
+
+        // Sample student data
+        List<string> studentNames = new List<string> { "Alex", "Taylor", "Jordan" };
+        List<List<int>> studentScores = new List<List<int>> {
+            new List<int> {95, 88, 92, 85},
+            new List<int> {78, 81, 74, 70},
+            new List<int> {62, 67, 69, 64}
+        };
+
+        // TODO: Calculate averages and print each student's summary
+        for (int i = 0; i < studentScores.Count; i++)
+        {
+            string studentName = studentNames[i];
+            List<int> scores = studentScores[i];
+
+            double average = CalculateAverage(scores); // TODO
+            char letterGrade = GetLetterGrade(average); // TODO
+
+            // TODO: Print student details clearly (name, scores, average, letter grade)
+        }
+
+        // TODO: Compute and print class statistics:
+        // - Class average
+        // - Highest scoring student
+        // - Lowest scoring student
+    }
+
+    // TODO: Method to calculate the average score from a list of integers
+    static double CalculateAverage(List<int> scores)
+    {
+        // Implement calculation here
+    }
+
+    // TODO: Method to determine the letter grade based on average score
+    static char GetLetterGrade(double average)
+    {
+        // Implement logic here
+    }
+
+    // Optional additional methods for class average, highest, and lowest scores
 }
-
-const Hello = ({ name }) => <h1>Hello, {name}!</h1>;
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
 ```
 
-#### Additional Challenge:
-- Extend your application by adding a new feature: a dynamic list component (`NameHistory`) that tracks and displays a history of all the previous names entered by the user.
-- Provide the ability to clear the history list.
+---
 
-#### Instructions:
+## Expected Output
 
-1. Recreate the provided starting HTML and JavaScript.
-2. Complete the interactive input functionality.
-3. Implement the additional challenge (`NameHistory` component).
+When completed correctly, your output will look like this:
 
-#### Deliverables:
-- Source code of your completed interactive React application.
-- A concise explanation (2-3 paragraphs) covering:
-  - React’s Virtual DOM creation and update mechanisms.
-  - How your additions demonstrate these React features.
+```
+Student Grade Management System
+===============================
 
-#### Criteria for Success:
-- Correctly implemented React application with dynamic state updates.
-- Successfully integrated `NameHistory` component and clear functionality.
-- Clear demonstration and explanation of React’s state management, Virtual DOM lifecycle, and JSX usage.
+Alex
+Scores: 95, 88, 92, 85
+Average: 90.0
+Grade: A
 
-##### Note:
+Taylor
+Scores: 78, 81, 74, 70
+Average: 75.8
+Grade: C
 
-In the provided exercise, there is nothing you need to install. The provided HTML file already includes React and ReactDOM via CDN links. You can directly run the code by opening the HTML file in a browser.
+Jordan
+Scores: 62, 67, 69, 64
+Average: 65.5
+Grade: D
 
-However, ensure your files (index.html and index.js) are properly created and saved in the same folder to guarantee they work seamlessly.
+===============================
+Class Average: 77.1
+Highest Average: Alex (90.0)
+Lowest Average: Jordan (65.5)
+```
+
+---
+
+## Hints:
+
+- Use loops (`for`, `foreach`) to iterate through arrays or lists.
+- Separate each calculation into its own method clearly.
+- Use conditional statements (`if-else`) to determine letter grades.
+- You can format strings easily with:
+  ```csharp
+  Console.WriteLine($"Hello {name}, your average is {average}");
+  ```
+- Optionally, handle edge cases, such as empty lists, gracefully.
+
+---
+
+## Evaluation Criteria:
+
+- Correct calculation of averages.
+- Accurate assignment of letter grades.
+- Correct usage of loops, conditionals, and methods.
+- Clear, readable, and organized code.
+
+---
