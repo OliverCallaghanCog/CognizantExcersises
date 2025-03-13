@@ -24,6 +24,17 @@ class App extends React.Component {
   }
   
   const Hello = ({ name }) => <h1>Hello, {name}!</h1>;
+
+  // Functionaly Component to Display Name History
+  const NameHistory = ({ history, clearHistory }) => (
+    <div>
+      <h2>Name History</h2>
+      <ul>
+        {history.map((name, index) => (<li key={index}>{name}</li>))}
+      </ul>
+      <button onClick={clearHistory}>Clear History</button>
+    </div>
+  );
   
   const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(<App />);
