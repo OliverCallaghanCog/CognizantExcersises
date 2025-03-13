@@ -8,23 +8,25 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\2391442\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Oli Callaghan\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\2391442\\Documents\\Repos\\CognizantExcersises\\CSharp\\SchoolApp\\SchoolApp.csproj",
+      "projectUniqueName": "F:\\_WORK\\Cognizant_Year_1\\Code\\CognizantExercises\\CSharp\\SchoolApp\\SchoolApp.csproj",
       "projectName": "SchoolApp",
-      "projectPath": "C:\\Users\\2391442\\Documents\\Repos\\CognizantExcersises\\CSharp\\SchoolApp\\SchoolApp.csproj",
-      "packagesPath": "C:\\Users\\2391442\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\2391442\\Documents\\Repos\\CognizantExcersises\\CSharp\\SchoolApp\\obj\\",
+      "projectPath": "F:\\_WORK\\Cognizant_Year_1\\Code\\CognizantExercises\\CSharp\\SchoolApp\\SchoolApp.csproj",
+      "packagesPath": "C:\\Users\\Oli Callaghan\\.nuget\\packages\\",
+      "outputPath": "F:\\_WORK\\Cognizant_Year_1\\Code\\CognizantExercises\\CSharp\\SchoolApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\2391442\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Oli Callaghan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
