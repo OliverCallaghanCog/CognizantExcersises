@@ -1,14 +1,7 @@
-using System;
-using System.Collections.Generic;
 
-using School;
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Student Grade Management System");
-        Console.WriteLine("===============================\n");
+class Program {
+    static void Main(string[] args) {
+        Console.WriteLine("Student Grade Management System \n===============================\n");
 
         // Sample student data
         List<string> studentNames = new List<string> { "Alex", "Taylor", "Jordan" };
@@ -18,36 +11,16 @@ class Program
             new List<int> {62, 67, 69, 64}
         };
 
-        List<School.Student> Pupils = new List<School.Student>();
+        List<School.Student> Pupils = studentNames.Select((name, index) => 
+                                        new School.Student(name, new School.GradesSet(studentScores[index]))).ToList();
 
-        for (int i = 0; i < studentNames.Count; ++i){
-            Pupils.Add(new School.Student(studentNames[i], new School.GradesSet(studentScores[i][0], studentScores[i][1], studentScores[i][2],studentScores[i][3])));
-            Pupils[i].printStudent();
-        }
+        Pupils.ForEach(pupil => pupil.printStudent());
+        School.Student highestPupil = Pupils.OrderByDescending(Pupils => Pupils.Grades.AvgScore).First();
+        School.Student lowestPupil = Pupils.OrderBy(Pupils => Pupils.Grades.AvgScore).First();
 
         Console.WriteLine("===============================");
-        Console.WriteLine("Class Average: \nHighest Average: \nLowest Average: ");
-
-
-        // TODO: Compute and print class statistics:
-        // - Class average
-        // - Highest scoring student
-        // - Lowest scoring student
+        Console.WriteLine($"Class Average: {Pupils.Average(Pupils => Pupils.Grades.AvgScore)}"
+                        + $"\nHighest Average: {highestPupil.FirstName} ({highestPupil.Grades.AvgScore})"
+                        + $"\nLowest Average:   {lowestPupil.FirstName} ({lowestPupil.Grades.AvgScore })");
     }
-
-    // TODO: Method to calculate the average score from a list of integers
-    static double CalculateAverage(List<int> scores)
-    {
-        // Implement calculation here
-        return 0.0;
-    }
-
-    // TODO: Method to determine the letter grade based on average score
-    static char GetLetterGrade(double average)
-    {
-        // Implement logic here
-        return '_';
-    }
-
-    // Optional additional methods for class average, highest, and lowest scores
 }
