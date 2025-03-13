@@ -10,28 +10,24 @@ class Program
         Console.WriteLine("Student Grade Management System");
         Console.WriteLine("===============================\n");
 
-        School.Student member = new School.Student("Oliver", "Callaghan", 23, new School.GradesSet(95, 88, 92, 85));
-        member.printStudent();
-
         // Sample student data
-        // List<string> studentNames = new List<string> { "Alex", "Taylor", "Jordan" };
-        // List<List<int>> studentScores = new List<List<int>> {
-        //     new List<int> {95, 88, 92, 85},
-        //     new List<int> {78, 81, 74, 70},
-        //     new List<int> {62, 67, 69, 64}
-        // };
+        List<string> studentNames = new List<string> { "Alex", "Taylor", "Jordan" };
+        List<List<int>> studentScores = new List<List<int>> {
+            new List<int> {95, 88, 92, 85},
+            new List<int> {78, 81, 74, 70},
+            new List<int> {62, 67, 69, 64}
+        };
 
-        // // TODO: Calculate averages and print each student's summary
-        // for (int i = 0; i < studentScores.Count; i++)
-        // {
-        //     string studentName = studentNames[i];
-        //     List<int> scores = studentScores[i];
+        List<School.Student> Pupils = new List<School.Student>();
 
-        //     double average = CalculateAverage(scores); // TODO
-        //     char letterGrade = GetLetterGrade(average); // TODO
+        for (int i = 0; i < studentNames.Count; ++i){
+            Pupils.Add(new School.Student(studentNames[i], new School.GradesSet(studentScores[i][0], studentScores[i][1], studentScores[i][2],studentScores[i][3])));
+            Pupils[i].printStudent();
+        }
 
-        //     // TODO: Print student details clearly (name, scores, average, letter grade)
-        // }
+        Console.WriteLine("===============================");
+        Console.WriteLine("Class Average: \nHighest Average: \nLowest Average: ");
+
 
         // TODO: Compute and print class statistics:
         // - Class average
